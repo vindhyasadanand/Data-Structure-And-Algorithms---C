@@ -190,21 +190,26 @@ NODE delete_bst(NODE root,int key)
 			cur=cur->llink;
 		}
 	}
+	//if key element exists then also we will come out of the while loop
+	//if key element does not exist then also we will come out of the loop
+	//so there can be two chances when we exist while loop
 	if(cur==NULL)
 	{
 		printf("element doesnot exist\n");
 		return root;
 	}
+	//we are checking if it is a leaf node
 	if(cur->llink==NULL)
 	{
 		next=cur->rlink;
 	}
+	//to check it is a leaf node
 	else if(cur->rlink==NULL)
 	{
 		next=cur->rlink;
 	}
 	else
-	{
+	{      //if it is not a leaf node then this will be executed
 		suc=cur->rlink;
 		while(suc->llink!=NULL)
 		{
